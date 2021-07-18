@@ -14,7 +14,7 @@
 <body>
 <h1>Trang chủ</h1>
 <h1>Bai hoc dau tien</h1>
-
+<h2>Web Home</h2>
 <%-- <%@ include file="menu.jsp" %> --%>
 </body>
 
