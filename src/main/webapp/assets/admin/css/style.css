@@ -1,0 +1,228 @@
+.app {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.app-header {
+	height: 55px;
+	background-color: #fff;
+	border-bottom: 1px solid #c2cfd6;
+}
+
+.app-header.navbar .navbar-brand {
+	height: 30px;
+	display: inline-block;
+	width: 155px;
+	padding: .5rem 1rem;
+	margin-right: 0;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 100px auto;
+}
+
+.app-header .navbar-toggler:focus {
+	box-shadow: 0 0 0 0.1rem;
+}
+
+.header-account {
+	margin-right: 20px;
+	margin-left: auto;
+}
+
+.header-account.dropdown .btn, .header-account.dropdown .btn:hover,
+	.header-account.dropdown .btn:active {
+	box-shadow: none;
+	border: 0;
+	background-color: transparent;
+	color: #2980b9;
+}
+
+.header-account .dropdown-menu {
+	left: unset;
+	right: 0;
+}
+
+.app-body {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	overflow-x: hidden;
+}
+
+.app-body .main {
+	flex: 1;
+	background-color: #f4f6f9;
+}
+
+.app-body .main .container-fluid {
+	padding: 0 30px;
+}
+
+.main .wrapper {
+	background-color: #fff;
+	padding: 1rem;
+	border: 1px solid #eee;
+}
+
+.app-body .sidebar {
+	flex: 0 0 200px;
+	order: -1;
+	background-color: #212529;
+}
+
+.app-body .sidebar .menu {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.sidebar .menu .menu-link {
+	text-decoration: none;
+	padding: .75rem .5rem;
+	/*display: block;*/
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.app-body .breadcrumb {
+	position: relative;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #c2cfd6;
+	padding: .75rem 1rem;
+	list-style: none;
+	background-color: #fff;
+}
+
+.breadcrumb .breadcrumb-item a {
+	color: #2980b9;
+}
+
+.header-fixed .app-header {
+	position: fixed;
+	z-index: 1020;
+	width: 100%;
+	top: 0;
+}
+
+.header-fixed .app-body {
+	margin-top: 55px;
+}
+
+.sidebar-fixed .sidebar {
+	position: fixed;
+	width: 200px;
+	height: 100%;
+	transition: margin-left .25s;
+}
+
+.sidebar-fixed .main {
+	margin-left: 200px;
+	transition: margin-left .25s;
+}
+
+.sidebar-fixed .app-footer {
+	margin-left: 200px;
+	transition: margin-left .25s;
+}
+
+.app-footer {
+	min-height: 50px;
+	padding: 0 1rem;
+	line-height: 50px;
+	color: #151b1e;
+	background-color: #fff;
+	border-top: 1px solid #c2cfd6;
+}
+
+.sidebar-hidden .sidebar {
+	margin-left: -200px;
+}
+
+.sidebar-hidden .main {
+	margin-left: 0;
+}
+
+.sidebar-hidden .app-footer {
+	margin-left: 0;
+}
+
+/*============SIDEBAR============*/
+.sidebar-tree {
+	font-size: 1rem;
+}
+
+.tree-view {
+	position: relative;
+	margin-bottom: 3px;
+}
+
+.tree-view a {
+	cursor: pointer;
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	margin-bottom: 3px;
+	transition: .3s;
+}
+
+.tree-view a:hover {
+	background-color: #3498db;
+}
+
+.tree-view--active>a {
+	background-color: #2980b9;
+}
+
+.tree-view a i:last-child {
+	float: right;
+	margin-right: .5rem;
+	margin-top: 0.7rem;
+}
+
+.tree-view a i:first-child {
+	margin-left: .7rem;
+}
+
+.tree-view a span {
+	display: inline-block;
+	padding-left: .6rem;
+}
+
+.tree-view-menu {
+	display: none;
+}
+
+.tree-view-menu a {
+	padding-left: 2.5rem;
+}
+
+.sidebar-tree .tree-view {
+	line-height: 2.5rem;
+}
+
+.toggle-rotate {
+	transition: .3s;
+}
+
+.toggle-rotate--active {
+	transform: rotate(90deg);
+}
+
+.sidebar-avt {
+	border-radius: 50%;
+	overflow: hidden;
+	width: 40px;
+	height: 40px;
+}
+
+.sidebar-header {
+	display: flex;
+	padding-left: 1rem;
+	margin: .5rem 0;
+}
+
+.sidebar-header h6 {
+	padding-top: .8rem;
+	padding-left: .5rem;
+}
