@@ -29,7 +29,7 @@ public class Category {
 	private String name;
 	
 	@Column(name = "short_description")
-	private String shortDesciption;
+	private String shortDescription;
 	
 	@Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@CreationTimestamp
@@ -39,9 +39,9 @@ public class Category {
 	@UpdateTimestamp
 	private Timestamp updatedAt;
 
-	public Category(String name, String shortDesciption) {
+	public Category(String name, String shortDescription) {
 		super();
 		this.name = name;
-		this.shortDesciption = shortDesciption;
+		this.shortDescription = shortDescription;
 	}
 }

@@ -1,9 +1,11 @@
 package com.laptrinhjavaweb.controller.admin;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +20,15 @@ public class CategoryController {
 	
 	@Autowired
 	CategoryService categoryService;
+	
+	@RequestMapping(value = "")
+	public ModelAndView index(Model model)
+	{
+		List<Category> categories = categoryService.getAll();
+		model.addAttribute("categories", categories);
+		ModelAndView mav = new ModelAndView("admin/categories/list");
+		return mav;
+	}
 	
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public ModelAndView create(Map<String, Object> model) {

@@ -25,4 +25,9 @@ public class CategoryServiceImpl implements CategoryService{
 	public Category create(Category category) {
 		return categoryRepository.save(category);
 	}
+
+	@Override
+	public List<Category> getAll() {
+		return categoryRepository.findAll();
+	}
 }

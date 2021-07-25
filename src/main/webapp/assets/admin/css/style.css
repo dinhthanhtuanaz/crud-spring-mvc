@@ -226,3 +226,9 @@
 	padding-top: .8rem;
 	padding-left: .5rem;
 }
+
+/** Customize style */
+.last-col {
+    width: 140px;
+    text-align: center;
+}
