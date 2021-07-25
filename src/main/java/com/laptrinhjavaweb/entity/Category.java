@@ -31,7 +31,7 @@ public class Category {
 	@Column(name = "short_description")
 	private String shortDescription;
 	
-	@Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
 	@CreationTimestamp
 	private Timestamp createdAt;
 	

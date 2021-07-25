@@ -232,3 +232,11 @@
     width: 140px;
     text-align: center;
 }
+
+.form-label {
+	font-weight: 500;
+}
+
+.width-100 {
+	width: 100px;
+}

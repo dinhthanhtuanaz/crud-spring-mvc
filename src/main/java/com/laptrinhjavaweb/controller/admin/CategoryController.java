@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +31,7 @@ public class CategoryController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "create", method = RequestMethod.GET)
+	@RequestMapping(value = "create")
 	public ModelAndView create(Map<String, Object> model) {
 		Category category = new Category();
 	    model.put("category", category);
@@ -41,6 +42,21 @@ public class CategoryController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String store(@ModelAttribute("category") Category category) {
 		categoryService.create(category);
+		return "redirect:/admin/categories";
+	}
+	
+	@RequestMapping(value = "{id}/edit")
+	public ModelAndView edit(@PathVariable Long id, Model model)
+	{
+		Category category = categoryService.findById(id);
+		model.addAttribute("category", category);
+		ModelAndView mav = new ModelAndView("admin/categories/edit");
+		return mav;
+	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(@ModelAttribute("category") Category category) {
+		categoryService.update(category);
 		return "redirect:/admin/categories";
 	}
 }

@@ -12,9 +12,10 @@
 		<div class="row">
 			<div class="col-xl-6">
 				<form:form
-					action="${pageContext.request.contextPath}/admin/categories"
+					action="${pageContext.request.contextPath}/admin/categories/update"
 					method="POST" modelAttribute="category"
 					autocomplete="off">
+					<form:hidden  path="id" />
 					<div class="form-group">
 						<label for="name" class="form-label">Tên</label>
 						<form:input path="name" class="form-control" />
@@ -23,8 +24,8 @@
 						<label for="shortDescription" class="form-label">Mô tả ngắn</label>
 						<form:input path="shortDescription" class="form-control" />
 					</div>
-					
 					<div class="form-group">
+						<a href="" class="btn btn-danger width-100">Xóa</a>
 						<a href="${pageContext.request.contextPath }/admin/categories" class="btn btn-info width-100">Danh sách</a>
 						<button type="submit" class="btn btn-primary width-100">Lưu</button>
 					</div>
