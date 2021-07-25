@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.laptrinhjavaweb.entity.CategoryEntity;
+import com.laptrinhjavaweb.entity.Category;
 import com.laptrinhjavaweb.repository.CategoryRepository;
 import com.laptrinhjavaweb.service.CategoryService;
 
@@ -17,7 +17,12 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public void testFindAll() {
-		List<CategoryEntity> categories =  categoryRepository.findAll();
+		List<Category> categories =  categoryRepository.findAll();
 		System.out.println("Category size = " + categories.size());
+	}
+
+	@Override
+	public Category create(Category category) {
+		return categoryRepository.save(category);
 	}
 }

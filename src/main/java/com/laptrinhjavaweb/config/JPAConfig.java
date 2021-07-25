@@ -53,7 +53,7 @@ public class JPAConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/helloworld01?useSSL=false");
+		dataSource.setUrl("jdbc:mysql://localhost:3309/helloworld01?useSSL=false");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
 		return dataSource;
@@ -61,7 +61,6 @@ public class JPAConfig {
 
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.show_sql", "true");
 		return properties;
