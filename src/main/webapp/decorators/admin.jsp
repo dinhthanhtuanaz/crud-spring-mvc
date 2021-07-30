@@ -11,7 +11,8 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-<link rel="stylesheet" href="<c:url value='/assets/admin/css/style.css' />">
+<link rel="stylesheet"
+	href="<c:url value='/assets/admin/css/style.css' />">
 </head>
 <body class="header-fixed sidebar-fixed">
 	<div class="app">
@@ -34,8 +35,9 @@
 		<%@include file="/common/admin/footer.jsp"%>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="<c:url value='/assets/admin/js/script.js' />"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+	<script src="<c:url value='/assets/admin/js/script.js' />"></script>
+	<script src="<c:url value='/assets/admin/js/categories/delete.js' />"></script>
 </body>
 </html>
