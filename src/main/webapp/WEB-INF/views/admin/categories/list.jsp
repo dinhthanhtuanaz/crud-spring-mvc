@@ -37,6 +37,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		${paginationTag }
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="modalDelete" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
