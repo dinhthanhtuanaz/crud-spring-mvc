@@ -18,10 +18,12 @@
 					<div class="form-group">
 						<label for="name" class="form-label">Tên</label>
 						<form:input path="name" class="form-control" />
+						<form:errors path="name" cssStyle="color:red;display:block"></form:errors>
 					</div>
 					<div class="form-group">
 						<label for="shortDescription" class="form-label">Mô tả ngắn</label>
 						<form:input path="shortDescription" class="form-control" />
+						<form:errors path="shortDescription" cssStyle="color:red;display:block"></form:errors>
 					</div>
 					
 					<div class="form-group">

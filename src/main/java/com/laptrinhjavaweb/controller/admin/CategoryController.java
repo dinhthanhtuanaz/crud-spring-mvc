@@ -5,11 +5,13 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,7 +70,10 @@ public class CategoryController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String store(HttpSession session, @ModelAttribute("category") Category category) {
+	public String store(HttpSession session,@Valid @ModelAttribute("category") Category category, BindingResult result) {
+		if (result.hasErrors()) {
+			return "admin/categories/create";
+		}
 		categoryService.create(category);
 		session.setAttribute("alertSession", "Tạo danh mục thành công");
 		session.setMaxInactiveInterval(10);
@@ -85,7 +90,10 @@ public class CategoryController {
 	}
 	
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(HttpSession session, @ModelAttribute("category") Category category) {
+	public String update(HttpSession session,@Valid @ModelAttribute("category") Category category, BindingResult result) {
+		if (result.hasErrors()) {
+			return "admin/categories/edit";
+		}
 		categoryService.update(category);
 		session.setAttribute("alertSession", "Cập nhật danh mục thành công");
 		session.setMaxInactiveInterval(10);
