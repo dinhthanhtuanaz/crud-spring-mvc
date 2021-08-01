@@ -10,6 +10,24 @@
 <body>
 	<div class="wrapper">
 		<%@include file="/common/admin/alert_session.jsp" %>
+		
+		<!-- Search Form -->
+		<form method="GET" action="${pageContext.request.contextPath}/admin/categories" autocomplete="off">
+			<div class="form-row">
+				<div class="form-group col-xl-1 pt-2">
+					<label for="name" class="mr-3"><b>Tên danh mục </b></label>
+				</div>
+				<div class="form-group col-xl-3">
+					
+				    <input type="text" class="form-control" id="name" name="name" value="${param.name}">
+				</div>
+				<div class="col-xl-3">
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+					<a href="${pageContext.request.contextPath }/admin/categories" class="btn btn-info width-100">Danh sách</a>
+					<a href="${pageContext.request.contextPath }/admin/categories/create" class="btn btn-success width-100">Tạo mới</a>
+				</div>
+			</div>
+		</form>
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
@@ -22,6 +40,11 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:if test="${empty categories}">
+			    	<tr>
+			    		<th colspan="6" class="text-center text-danger">Không có dữ liệu</th>
+			    	</tr>
+				</c:if>
 				<c:forEach var="category" items="${categories}" varStatus="loop">
 					<tr>
 						<th scope="row">${loop.getIndex()+1}</th>
@@ -37,7 +60,9 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		${paginationTag }
+		<c:if test="${not empty categories}">
+			${paginationTag }
+		</c:if>
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="modalDelete" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">

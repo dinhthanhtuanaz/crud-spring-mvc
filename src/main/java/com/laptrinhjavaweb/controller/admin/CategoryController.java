@@ -32,7 +32,9 @@ public class CategoryController {
 	private ServletContext context;
 	
 	@RequestMapping(value = "")
-	public ModelAndView index(HttpSession session, Model model, @RequestParam(name = "page", defaultValue = "1") String page)
+	public ModelAndView index(HttpSession session, Model model, @RequestParam(name = "page", defaultValue = "1") String page,
+				@RequestParam(name = "name", defaultValue = "") String name
+			)
 	{
 		int currentPage = 1;
 		try {
@@ -40,9 +42,14 @@ public class CategoryController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Page<Category> pagination = categoryService.paginate(currentPage);
+		
+		Page<Category> pagination = categoryService.findAllByNameContaining(name, currentPage);
 		List<Category> categories = pagination.getContent();
-		String paginationTag = categoryService.buildPaginationTag(currentPage, pagination.getTotalPages(),  context.getContextPath() +"/admin/categories");
+		String paginationTag = categoryService.buildPaginationTag(
+				currentPage,
+				pagination.getTotalPages(),
+				context.getContextPath() +"/admin/categories?name=" + name
+			);
 		
 		model.addAttribute("categories", categories);
 		model.addAttribute("paginationTag", paginationTag);
@@ -53,18 +60,18 @@ public class CategoryController {
 	}
 	
 	@RequestMapping(value = "create")
-	public ModelAndView create(HttpSession session, Map<String, Object> model) {
+	public ModelAndView create(Map<String, Object> model) {
 		Category category = new Category();
 	    model.put("category", category);
 		ModelAndView mav = new ModelAndView("admin/categories/create");
-		session.setAttribute("alertSession", "Tạo danh mục thành công");
-		session.setMaxInactiveInterval(10);
 		return mav;
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String store(@ModelAttribute("category") Category category) {
+	public String store(HttpSession session, @ModelAttribute("category") Category category) {
 		categoryService.create(category);
+		session.setAttribute("alertSession", "Tạo danh mục thành công");
+		session.setMaxInactiveInterval(10);
 		return "redirect:/admin/categories";
 	}
 	

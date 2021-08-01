@@ -49,7 +49,7 @@ public class MyBaseServiceImpl<T, ID extends Serializable> implements MyBaseServ
 		return repository.findAll(new PageRequest(page - 1, Constant.PER_PAGE, sortByIdDesc()));
 	}
 	
-	private Sort sortByIdDesc() {
+	protected Sort sortByIdDesc() {
 		return new Sort(Sort.Direction.DESC, "id");
 	}
 
@@ -123,6 +123,6 @@ public class MyBaseServiceImpl<T, ID extends Serializable> implements MyBaseServ
 //			liClass += " disabled";
 //		}
 		
-		return "<li class='"+liClass+"'><a class='page-link' href='"+ url +"?page="+page+"'>"+ pageText + "</a></li>";
+		return "<li class='"+liClass+"'><a class='page-link' href='"+ url +"&page="+page+"'>"+ pageText + "</a></li>";
 	}
 }
