@@ -84,5 +84,8 @@
 	    </div>
 	  </div>
 	</div>
+	<content tag="js_current_page">
+		<script src="<c:url value='/assets/admin/js/categories/delete.js' />"></script>
+	</content>
 </body>
 </html>

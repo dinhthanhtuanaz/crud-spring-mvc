@@ -38,6 +38,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
 	<script src="<c:url value='/assets/admin/js/script.js' />"></script>
-	<script src="<c:url value='/assets/admin/js/categories/delete.js' />"></script>
+	<dec:getProperty property="page.js_current_page"></dec:getProperty>
 </body>
 </html>
