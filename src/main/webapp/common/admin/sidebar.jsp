@@ -19,8 +19,8 @@
 					class="fas fa-chevron-right toggle-rotate"></i>
 			</a>
 				<ul class="tree-view-menu list-inline" style="">
-					<li><a href="class-list.html">Danh sách</a></li>
-					<li><a href="class-add.html">Thêm</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/products">Danh sách</a></li>
+					<li><a href="${pageContext.request.contextPath}/admin/products/create">Thêm</a></li>
 				</ul></li>
 		</ul>
 	</nav>

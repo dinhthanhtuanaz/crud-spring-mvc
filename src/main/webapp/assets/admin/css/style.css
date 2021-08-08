@@ -240,3 +240,28 @@
 .width-100 {
 	width: 100px;
 }
+
+/* Table price*/
+.price-table thead tr th{
+	border-bottom: 0;
+}
+.price-table td[rowspan]{
+	border-right: 1px solid #dee2e6;
+}
+.price-table tr td:last-child{
+	border-left: 1px solid #dee2e6;
+}
+.price-table tbody+tbody{
+	border-top: 0;
+}
+.price-table .last-column{
+	display:flex;
+    width: 100%;
+}
+.price-table tr th:last-child{
+	width:330px;
+}
+.price-table .last-column input{
+	width: 200px;
+	margin-right:10px;
+}
