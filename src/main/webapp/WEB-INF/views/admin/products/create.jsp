@@ -11,6 +11,17 @@
 	<div class="wrapper">
 		<div class="row">
 			<div class="col-xl-6">
+				<form:form
+					action="${pageContext.request.contextPath}/admin/products"
+					modelAttribute="product"
+					method="POST"
+					autocomplete="off">
+					<form:input path="name" placeholder="Ten san pham"/> <form:errors path="name" cssClass="error"/> <br/><br/>
+					
+					<button type="submit" class="btn btn-primary width-100">Lưu</button>
+				</form:form>
+				<hr />
+			
 				<form
 					action="${pageContext.request.contextPath}/admin/categories"
 					method="POST"
